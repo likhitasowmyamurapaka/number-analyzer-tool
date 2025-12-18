@@ -7,11 +7,11 @@ document.getElementById('start').addEventListener('submit',(e)=>{
     
     if (num%2==0){
         //console.log(`${num} is a even number`);
-        document.getElementById('d1').innerHTML=`${num} is a even number`;
+        document.getElementById('d1').innerHTML='Even/Odd: Even';
     }
     else{
         //console.log(`${num} is a odd number`);
-        document.getElementById('d1').innerHTML=`${num} is a odd number`;
+        document.getElementById('d1').innerHTML='Even/Odd: Odd';
     }
 
     // //prime or not
@@ -19,11 +19,11 @@ document.getElementById('start').addEventListener('submit',(e)=>{
     let prime=true;
     if (num<=0){
         // console.log(`${num} is not valid number`)
-        document.getElementById('d2').innerHTML=`${num} is not a valid number`;
+        document.getElementById('d2').innerHTML=`Prime: Not a valid number`;
     }
     else if(num == 1){
         // console.log('1 is neither prime nor composite')
-        document.getElementById('d2').innerHTML='1 is neither prime nor composite';
+        document.getElementById('d2').innerHTML='Prime: Neither prime Nor composite';
     }
     else if(num>1){
         for(let i=2; i<=Math.sqrt(num);i++){
@@ -34,11 +34,11 @@ document.getElementById('start').addEventListener('submit',(e)=>{
         }
         if (prime){
             // console.log(`${num} is a prime number`);
-            document.getElementById('d2').innerHTML=`${num} is a prime number`;
+            document.getElementById('d2').innerHTML='Prime/Not: Prime';
         }
         else{
             // console.log(`${num} is not a prime number`)
-            document.getElementById('d2').innerHTML=`${num} is not a prime number`;
+            document.getElementById('d2').innerHTML='Prime/Not: Not Prime';
         }
     }
 
@@ -46,25 +46,14 @@ document.getElementById('start').addEventListener('submit',(e)=>{
 
     let square=num*num;
     // console.log(square);
-    document.getElementById('d3').innerHTML=`${square}`;
+    document.getElementById('d3').innerHTML=`Square: ${square}`;
 
-    //multiplication
-
-    let limit= document.getElementById('limits').value;
-    // console.log(limit); 
-    let table ="";
-    for(let j=1; j<=limit;j++){
-        // console.log(`${num} x ${j} = ${num*j}`);
-        table+=`${num} x ${j} = ${num*j}<br>`;
-    }
-    document.getElementById('d4').innerHTML=table;
-
-    //factorial
+     //factorial
 
     function factorial(num){
         if (num<0){
             // console.log("Factorial not defined");
-            document.getElementById('d5').innerHTML='Factorial not defined';
+            document.getElementById('d4').innerHTML='Factorial: Not defined';
             return;
         }
         let fact=1;
@@ -72,7 +61,35 @@ document.getElementById('start').addEventListener('submit',(e)=>{
             fact=fact*k;
         }
         // console.log(fact);
-        document.getElementById('d5').innerHTML=`${fact}`;
+        document.getElementById('d4').innerHTML=`Factorial: ${fact}`;
     }
     factorial(num);
+
+    //multiplication
+
+    // let limit= document.getElementById('limits').value;
+    // // console.log(limit); 
+    // let table ="";
+    // for(let j=1; j<=limit;j++){
+    //     // console.log(`${num} x ${j} = ${num*j}`);
+    //     table+=`${num} x ${j} = ${num * j} <br>`;
+    // }
+    // document.getElementById('d5').innerHTML=table;
+
+   let d5 = document.getElementById("d5");
+    d5.innerHTML = ""; 
+    let limit= document.getElementById('limits').value;
+    document.getElementById('d5').innerHTML='Multiplication: ';
+
+    for (let i = 1; i <= limit; i++) {
+        d5.innerHTML += ` 
+        <div class="mul-row">
+            <span>${num}</span>
+            <span>x</span>
+            <span>${i}</span>
+            <span>=</span>
+            <span>${num * i}</span>
+        </div>
+        `;
+    }
 })

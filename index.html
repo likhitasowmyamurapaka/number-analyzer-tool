@@ -4,19 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+     <link rel="stylesheet" href="number_analyzer.css"/>
 </head>
 <body>
+    <div id="container">
     <form id="start">
+        <div class="row">
+        <label>Number</label>
         <input type="number" placeholder="Eg: 5" id ='value'/>
+        </div>
+        <div class="row">
+        <label>Limit</label>
         <input type="number" placeholder="eg: 10" id="limits"/>
-        <button type="submit">Show values</button>
+         </div>
+        <button type="submit" id="btn">Show values</button>
+       
+    <div id="order">
+    <div id="d1">Even/Odd: </div>
+    <div id="d2">Prime: </div>
+    <div id="d3">Square: </div>
+    <div id="d4">Factorial: </div>
+    <div id="d5">Multiplication: </div>
+    </div>
     </form>
-    <div id="d1"></div>
-    <div id="d2"></div>
-    <div id="d3"></div>
-    <div id="d4"></div>
-    <div id="d5"></div>
+    </div>
     <script src="number_analyzer.js"></script>
 </body>
 </html>
